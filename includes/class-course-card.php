@@ -18,7 +18,7 @@ class CourseCard {
 		$price_group = get_field( 'cena_za_kurs', $post_id );
 		$price_info = Helpers::get_lowest_price( $price_group );
 		
-		$icons_url = wp_COURSES_URL . 'assets/img/';
+		$icons_url = WP_COURSES_URL . 'assets/img/';
 		
 		?>
 		<a href="<?php echo esc_url( get_permalink( $post_id ) ); ?>" class="kurs-card">
@@ -69,7 +69,7 @@ class CourseCard {
 	
 	private static function get_category_image_url( $post_id ) {
 		$terms = get_the_terms( $post_id, 'kategoria_kursu' );
-		$fallback = wp_COURSES_URL . 'assets/img/placeholder-course.jpg';
+		$fallback = WP_COURSES_URL . 'assets/img/placeholder-course.jpg';
 		
 		if ( ! $terms || is_wp_error( $terms ) ) {
 			return $fallback;
