@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WP_COURSES_VERSION', '1.0.1' );
+define( 'WP_COURSES_VERSION', '1.0.2' );
 define( 'WP_COURSES_FILE', __FILE__ );
 define( 'WP_COURSES_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WP_COURSES_URL', plugin_dir_url( __FILE__ ) );
