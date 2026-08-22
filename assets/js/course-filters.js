@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const sortEl = wrap.querySelector('[data-filter="sort"]')
+        
         body.append('sort', sortEl ? sortEl.value : 'data_kursu_asc')
-
-        ['data_od', 'data_do'].forEach(k => {
+        ;['data_od', 'data_do'].forEach(k => {
             const el = wrap.querySelector('[data-filter="' + k + '"]')
 
             if (el) {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const katVals = lockedCategory ? [lockedCategory] : getCheckedValues('kategoria')
 
         katVals.forEach(v => body.append('kategoria[]', v))
-        ['miejsce', 'organizator', 'wykladowca'].forEach(key => {
+        ;['miejsce', 'organizator', 'wykladowca'].forEach(key => {
             getCheckedValues(key).forEach(v => body.append(key + '[]', v))
         })
 
