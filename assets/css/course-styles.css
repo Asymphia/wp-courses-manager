@@ -1,0 +1,197 @@
+.kursy-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 5.5fr;
+    gap: 40px;
+}
+
+.kurs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.thumb {
+    position: relative;
+}
+
+.thumb img {
+    width: 100%;
+    border-radius: 30px 30px 0 0;
+}
+
+.cat-pill {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border-radius: 30px;
+    padding: 2px 16px;
+    width: fit-content;
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+    color: #222222;
+}
+
+.kurs-card {
+    border: 1px solid #eee;
+    border-radius: 30px;
+    transition: all .24s ease-in-out;
+    display: block;
+    text-decoration: none;
+}
+
+.kurs-card:hover {
+    transform: translateY(-12px);
+}
+
+.kurs-card .body {
+    padding: 30px;
+}
+
+.kurs-card .body h3 {
+    font-family: 'Inter', Helvetica, Arial, Lucida, sans-serif;
+    color: #000000;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.meta-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Source Sans 3', Helvetica, Arial, Lucida, sans-serif;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.meta-line img {
+    width: 18px;
+}
+
+.body-hr {
+    border: none;
+    border-bottom: 1px solid #eee;
+    margin: 10px 0;
+}
+
+.price {
+    color: #4D4C03;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Inter', Helvetica, Arial, Lucida, sans-serif;
+}
+
+.price-tag {
+    font-family: 'Source Sans 3', Helvetica, Arial, Lucida, sans-serif;
+    color: #222;
+    opacity: .7;
+}
+
+.kurs-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.k-field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: #6E7261;
+    margin-bottom: 6px;
+}
+
+.k-input, .k-select {
+    width: 100%;
+    border: 1px solid #DBDECB;
+    border-radius: 10px;
+    padding: 9px 12px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+}
+
+.k-checkgroup .k-check-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid #DBDECB;
+    border-radius: 10px;
+    padding: 10px 12px;
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.k-check-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13.5px;
+    cursor: pointer;
+}
+
+.k-check-option input {
+    width: 15px;
+    height: 15px;
+    flex: none;
+}
+
+.k-clear {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.kurs-result-count {
+    font-size: 14px;
+    color: #6E7261;
+    margin-bottom: 16px;
+}
+
+.kurs-pagination {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.k-page {
+    border: 1px solid #DBDECB;
+    background: #fff;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.k-page.active {
+    background: #3E4A22;
+    color: #fff;
+    border-color: #3E4A22;
+}
+
+.kurs-empty {
+    color: #6E7261;
+}
+
+@media (max-width: 900px) {
+    .kursy-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .kurs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .kurs-grid {
+        grid-template-columns: 1fr;
+    }
+}
