@@ -37,7 +37,7 @@ class Shortcode {
 		
 		ob_start();
 		?>
-		<div class="kursy-wrapper"
+		<div class="kursy-wrapper<?php echo ( ! $show_filters && ! $show_sorting && ! $show_search ) ? ' no-toolbar' : ''; ?>"
 		     data-take="<?php echo esc_attr( intval( $atts['take'] ) ); ?>"
 		     data-pagination="<?php echo esc_attr( $pagination ? '1' : '0' ); ?>"
 		     data-locked-category="<?php echo esc_attr( $locked_category ); ?>"
@@ -48,7 +48,9 @@ class Shortcode {
 			<?php endif; ?>
 			
 			<div class="kurs-results">
-				<div class="kurs-result-count"></div>
+				<?php if ( $show_filters || $show_sorting || $show_search ) : ?>
+					<div class="kurs-result-count"></div>
+				<?php endif; ?>
 				<?php
 				echo CourseQuery::render_results_html( array(
 					'take' => $atts['take'],

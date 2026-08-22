@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const sortEl = wrap.querySelector('[data-filter="sort"]')
-        
+
         body.append('sort', sortEl ? sortEl.value : 'data_kursu_asc')
         ;['data_od', 'data_do'].forEach(k => {
             const el = wrap.querySelector('[data-filter="' + k + '"]')

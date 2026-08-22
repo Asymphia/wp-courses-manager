@@ -4,6 +4,10 @@
     gap: 40px;
 }
 
+.kursy-wrapper.no-toolbar {
+    grid-template-columns: 1fr;
+}
+
 .kurs-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
