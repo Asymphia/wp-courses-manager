@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
     const wrap = document.querySelector('.kursy-wrapper')
 
     if (!wrap) {
@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const fetchResults = (page) => {
         const body = new URLSearchParams()
 
-        body.append('action', 'wp_courses_filter')
-        body.append('nonce', wpCourses.nonce)
+        body.append('action', 'wp_filter_kursy')
+        body.append('nonce', wpKursy.nonce)
         body.append('take', take)
         body.append('pagination', pagination ? '1' : '0')
         body.append('paged', page || 1)
@@ -46,19 +46,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ['data_od', 'data_do'].forEach(k => {
             const el = wrap.querySelector('[data-filter="' + k + '"]')
-            if (el) body.append(k, el.value || '')
-        });
+
+            if (el) {
+                body.append(k, el.value || '')
+            }
+        })
 
         const katVals = lockedCategory ? [lockedCategory] : getCheckedValues('kategoria')
-        katVals.forEach(v => body.append('kategoria[]', v))
 
+        katVals.forEach(v => body.append('kategoria[]', v))
         ['miejsce', 'organizator', 'wykladowca'].forEach(key => {
             getCheckedValues(key).forEach(v => body.append(key + '[]', v))
         })
 
         resultsBox.style.opacity = '0.5'
 
-        fetch(wpCourses.ajaxUrl, {
+        fetch(wpKursy.ajaxUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: body.toString()
@@ -95,15 +98,18 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-    const sEl = wrap.querySelector('[data-filter="s"]');
-    if (sEl) sEl.addEventListener('input', () => {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => fetchResults(1), 400);
-    });
+    const sEl = wrap.querySelector('[data-filter="s"]')
+
+    if (sEl) {
+        sEl.addEventListener('input', () => {
+            clearTimeout(debounceTimer)
+            debounceTimer = setTimeout(() => fetchResults(1), 400)
+        })
+    }
 
     wrap.querySelectorAll('select[data-filter], input[type="date"][data-filter]').forEach(el => {
-        el.addEventListener('change', () => fetchResults(1));
-    });
+        el.addEventListener('change', () => fetchResults(1))
+    })
 
     const clearBtn = wrap.querySelector('.k-clear')
 

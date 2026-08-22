@@ -4,7 +4,7 @@
  * Plugin Name:       WP Courses Manager
  * Plugin URI:        https://github.com/Asymphia/wp-courses-manager
  * Description:       Registers CPT "Kurs", related taxonomies and shortcode [kursy] with filtering, sorting and AJAX searching
- * Version:           1.0.0
+ * Version:           1.0.2
  * Requires PHP:      7.4
  * Author:            Asymphia
  * Text Domain:       wp-courses-manager
