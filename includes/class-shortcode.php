@@ -66,6 +66,10 @@ class Shortcode {
 	}
 	
 	private function resolve_locked_category( $category_attr ) {
+		if ( $category_attr === 'auto' ) {
+			return $this->get_current_course_category_slug();
+		}
+		
 		if ( ! empty( $category_attr ) ) {
 			return sanitize_title( $category_attr );
 		}
@@ -79,6 +83,24 @@ class Shortcode {
 		}
 		
 		return '';
+	}
+	
+	private function get_current_course_category_slug() {
+		if ( ! is_singular( 'kurs' ) ) {
+			return '';
+		}
+		
+		$post_id = get_the_ID();
+		if ( ! $post_id ) {
+			return '';
+		}
+		
+		$terms = get_the_terms( $post_id, 'kategoria_kursu' );
+		if ( ! $terms || is_wp_error( $terms ) ) {
+			return '';
+		}
+		
+		return $terms[0]->slug;
 	}
 	
 	private function render_toolbar( $show_filters, $show_sorting, $show_search, $locked_category ) {

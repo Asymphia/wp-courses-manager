@@ -70,4 +70,52 @@ class Helpers {
 		
 		return array('cena' => $lowest, 'etykieta' => $lowest_label);
 	}
+	
+	public static function get_all_prices( $price_group ) {
+		if ( ! is_array( $price_group ) ) return array();
+		
+		$labels = array(
+			'cena_dla_nowych_osob' => 'Cena dla nowych osób',
+			'cena_dla_nowych_osob_w_przedplacie' => 'Cena dla nowych osób w przedpłacie',
+			'cena_kurs_podstawowy' => 'Osoby po kursie podstawowym',
+			'cena_dla_osob_po_kursie_sprzed_2015_r' => 'Osoby po kursie 3-dniowym sprzed 2015 r.',
+			'cena_dla_osob_powtarzajacych' => 'Osoby powtarzające',
+			'cena_po_dzieci' => 'Osoby po kursie dla dzieci',
+		);
+		
+		$rows = array();
+		foreach ( $labels as $key => $label ) {
+			if ( ! isset( $price_group[ $key ] ) || $price_group[ $key ] === '' || $price_group[ $key ] === null ) {
+				continue;
+			}
+			$rows[] = array( 'label' => $label, 'amount' => floatval( $price_group[ $key ] ) );
+		}
+		
+		return $rows;
+	}
+	
+	public static function count_days( $raw_from, $raw_to ) {
+		if ( ! $raw_from ) {
+			return 0;
+		}
+		
+		$from = \DateTime::createFromFormat( 'Ymd', $raw_from );
+		
+		if ( ! $from ) {
+			return 0;
+		}
+		
+		if ( ! $raw_to ) {
+			return 1;
+		}
+		
+		$to = \DateTime::createFromFormat( 'Ymd', $raw_to );
+		
+		if ( ! $to ) {
+			return 1;
+		}
+		
+		$diff = $from->diff( $to );
+		return $diff->days + 1;
+	}
 }
