@@ -403,3 +403,184 @@
     width: 100%;
     border-radius: 30px;
 }
+
+@media (max-width: 980px) {
+    .wpc-date-block {
+        padding: 12px 16px;
+        gap: 14px;
+    }
+
+    .wpc-date-block-info h3 {
+        font-size: 15px;
+    }
+
+    .wpc-info-list {
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .wpc-info-value {
+        font-size: 15px;
+    }
+
+    .price-row {
+        padding: 16px 18px;
+        gap: 14px;
+    }
+
+    .wpc-lecturer {
+        padding: 22px;
+        gap: 24px;
+    }
+
+    .wpc-lecturer-photo {
+        width: 96px;
+    }
+
+    .wpc-lecturer-name {
+        font-size: 17px !important;
+    }
+
+    .wpc-place {
+        padding: 22px;
+    }
+
+    .wpc-place > h3 {
+        font-size: 17px !important;
+    }
+
+    .wpc-signup {
+        padding: 22px;
+    }
+
+    .wpc-signup > h3 {
+        font-size: 17px !important;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .wpc-date-block {
+        padding: 10px 14px;
+        gap: 12px;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .wpc-date-block-info h3 {
+        font-size: 14px;
+        padding-bottom: 1px;
+    }
+
+    .wpc-date-block-info span {
+        font-size: 13px;
+    }
+
+    .wpc-info-list {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .wpc-info-label {
+        font-size: 12px;
+    }
+
+    .wpc-info-value {
+        font-size: 14px;
+    }
+
+    .price-table {
+        border-radius: 20px;
+    }
+
+    .price-row {
+        padding: 14px 16px;
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .price-row:first-of-type {
+        border-radius: 20px 20px 0 0;
+    }
+
+    .price-row:last-of-type {
+        border-radius: 0 0 20px 20px;
+    }
+
+    .name {
+        font-size: 13.5px;
+    }
+
+    .amount {
+        font-size: 15px;
+    }
+
+    .wpc-lecturer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+        gap: 16px;
+        border-radius: 20px;
+    }
+
+    .wpc-lecturer-photo {
+        width: 80px;
+    }
+
+    .wpc-lecturer-name {
+        font-size: 16px !important;
+    }
+
+    .wpc-lecturer-role {
+        font-size: 13.5px;
+        margin-bottom: 6px;
+    }
+
+    .wpc-lecturer-contact-row > img {
+        width: 17px;
+    }
+
+    .wpc-lecturer-contact-row > span {
+        font-size: 13.5px;
+    }
+
+    .wpc-place {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .wpc-place > h3 {
+        font-size: 16px !important;
+    }
+
+    .wpc-place-row {
+        font-size: 13.5px;
+    }
+
+    .wpc-place-row > img {
+        width: 17px;
+    }
+
+    .wpc-signup {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .wpc-signup > h3 {
+        font-size: 16px !important;
+        margin-bottom: 10px;
+    }
+
+    .wpc-signup-row > img {
+        width: 17px;
+    }
+
+    .wpc-signup-row > span > a {
+        font-size: 13.5px;
+    }
+
+    .wpc-category-image {
+        border-radius: 20px;
+    }
+}
