@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class CourseCard {
 	public static function render( $post_id ) {
-		$image_url = self::get_category_image_url( $post_id );
+		$category_color = self::get_category_color( $post_id );
 		$category = self::get_first_term_name( $post_id, 'kategoria_kursu' );
 		$place = self::get_first_term_name( $post_id, 'miejsce' );
 		$lecturer = self::get_first_term_name( $post_id, 'wykladowca' );
@@ -22,8 +22,7 @@ class CourseCard {
 		
 		?>
 		<a href="<?php echo esc_url( get_permalink( $post_id ) ); ?>" class="kurs-card">
-			<div class="thumb">
-				<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( get_the_title( $post_id ) ); ?>" loading="lazy">
+			<div class="thumb" style="background-color: <?php echo esc_attr( $category_color ); ?>;">
 				<?php if ( $category ) : ?>
 					<div class="cat-pill"><?php echo esc_html( $category ); ?></div>
 				<?php endif; ?>
@@ -86,6 +85,19 @@ class CourseCard {
 		}
 		
 		return $fallback;
+	}
+	
+	private static function get_category_color( $post_id ) {
+		$terms = get_the_terms( $post_id, 'kategoria_kursu' );
+		$fallback = '#ECEEDF';
+		
+		if ( ! $terms || is_wp_error( $terms ) ) {
+			return $fallback;
+		}
+		
+		$color = get_field( 'kolor', $terms[0] );
+		
+		return ( $color && is_string( $color ) ) ? $color : $fallback;
 	}
 	
 	private static function get_first_term_name( $post_id, $taxonomy ) {
